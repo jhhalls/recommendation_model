@@ -22,6 +22,9 @@ df.isnull().sum().sort_values(ascending=False)
 ## drop the rows with missing values
 df = df.dropna()
 
+# make sure null values dropped successfully
+assert df.isna().sum() == 0
+
 # formatting
 ### convert columns to lowercase
 data.columns = map(str.lower, data.columns)
@@ -31,6 +34,10 @@ data['invoicedate'] = pd.to_datetime(data.invoicedate, format = '%m/%d/%Y %H:%M'
 
 ### change the columns from float to integer
 df['customerid'].astype(int)
+
+# check
+assert type(df['customerid'][0]) == int
+
 
 ### change description of products to lowercase
 data['description'] = data.description.str.lower()
