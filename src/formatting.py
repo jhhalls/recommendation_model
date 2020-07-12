@@ -4,8 +4,14 @@ import pandas as pd
 # load the data
 df = pd.read_csv('data.csv', encoding='unicode_escape')
 
+# Make sure they all loaded successfully:
+assert df
+
 # dataframe of rows with atleast one missing values
 null = pd.DataFramedata([data.isnull().any(axis=1)])
+
+# Make sure dataframe created successfully:
+assert null
 
 # save the null dataframe
 null.to_csv('../data/missing_values.csv')
