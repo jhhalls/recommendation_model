@@ -4,6 +4,9 @@ import pandas as pd
 # load the data
 df = pd.read_csv('data.csv', encoding= 'ISO-8859-1')
 
+# Make sure data loaded successfully:
+assert df
+
 # map columns to lowercase
 df.columns = map(str.lower, df.columns)
 
